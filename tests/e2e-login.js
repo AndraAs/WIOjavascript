@@ -1,39 +1,37 @@
+import LoginPage from '../page-objects/pages/LoginPage'
+import App from '../page-objects/App'
 import {long} from '../lib/timeouts'
+import Navbar from '../page-objects/components/Navbar'
 describe('E2E tests - Login / Logout Flow', () => {
     it('Should not login with invalid credential', () => {
-        browser.url('http://zero.webappsecurity.com/')
-        // const signInBtn= $('#signin_button')
-        // signInBtn.waitForExist()
-        $('#signin_button').waitForExist()
-        $('#signin_button').click()
-        $('#login_form').waitForExist()
-        $('#user_login').setValue('gresit')
-        $('#user_password').setValue('gresit')
-        $('input[type= "submit"]').waitForExist()
-        $('input[type= "submit"]').click()
-        const error = $('.alert.alert-error')
+       App.openHomePage()
+        Navbar.clickSignIn()
+        LoginPage.pauseShort()
+        LoginPage.formIsVisible()
+        LoginPage.fillForm('invalid username','invalid pswd')
+        LoginPage.submitForm()
+        
+        const error = LoginPage.errorMsg
         expect(error).toHaveText('Login and/or password are wrong.')
         
     })
     it('Should login with valid credentials', () => {
-        browser.url('http://zero.webappsecurity.com/')
-        // const signInBtn= $('#signin_button')
-        // signInBtn.waitForExist()
-        $('#signin_button').waitForExist()
-        $('#signin_button').click()
-        $('#login_form').waitForExist()
-        $('#user_login').setValue('username')
-        $('#user_password').setValue('password')
-        $('input[type= "submit"]').waitForExist()
-        $('input[type= "submit"]').click()
-        $('.nav-tabs').waitForExist()
+        App.openHomePage()
+        // $('#signin_button').waitForExist()
+        // $('#signin_button').click()
+        Navbar.clickSignIn()
+        LoginPage.formIsVisible()
+        LoginPage.fillForm('username','password')
+        LoginPage.submitForm()
+        Navbar.insideNavbarIsVisible()
     })
     it('should logout from app', () => {
-       $('.icon-user').waitForExist()
-       $('.icon-user').click()
-       $('#logout_link').waitForExist()
-       $('#logout_link').click()
-       $('#pages-nav').waitForExist()
+    //    $('.icon-user').waitForExist()
+    //    $('.icon-user').click()
+    //    $('#logout_link').waitForExist()
+    //    $('#logout_link').click()
+          App.logout()
+          Navbar.signInButtonIsVisible()
 
     })
 

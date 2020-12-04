@@ -1,7 +1,9 @@
+import App from '../page-objects/App'
 import {long} from '../lib/timeouts'
 describe('E2e - Feedback', () => {
     it('Should load feedback', () => {
-        browser.url('http://zero.webappsecurity.com/')
+        //browser.url('http://zero.webappsecurity.com/')
+        App.openHomePage()
         $('#feedback').waitForExist()
         $('#feedback').click()
         $('.signin-controls.form-inputs').waitForExist()
