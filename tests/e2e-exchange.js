@@ -3,19 +3,8 @@ import LoginPage from '../page-objects/pages/LoginPage'
 import Navbar from '../page-objects/components/Navbar'
 describe('E2e Tests - Currency Exchange', () => {
     it('Should log into application', () => {
-        // browser.url('http://zero.webappsecurity.com/')
-        // $('#signin_button').waitForExist()
-        // $('#signin_button').click()
         App.openLoginPage()
-        // $('#login_form').waitForExist()
-        LoginPage.formIsVisible()
-        // $('#user_login').setValue('username')
-        // $('#user_password').setValue('password')
-        LoginPage.fillForm('username', 'password')
-        // $('input[type= "submit"]').waitForExist()
-        // $('input[type= "submit"]').click()
-        LoginPage.submitForm()
-        // $('.nav-tabs').waitForExist()
+        LoginPage.login('username', 'password')
         Navbar.insideNavbarIsVisible()
 
     })
