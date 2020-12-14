@@ -22,7 +22,7 @@ class BankPage extends Base{
     verifyAlertMsg(message){
 
         this.successAlert.waitForExist()
-        expect(thi.successAlert).toHavaText(message)
+        expect(this.successAlert).toHaveText(message)
     }
     clickPurchaseBtn(){
         this.purchaseBtn.waitForExist()
