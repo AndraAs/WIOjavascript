@@ -15,6 +15,13 @@ class Navbar extends Base {
     get searchInputField() {
         return $('#searchTerm')
     }
+    get onlineBankingLink() {
+        return $('#pay_bills_tab')
+    }
+    clickOnlineBankingLink(){
+        this.onlineBankingLink.waitForExist()
+        this.onlineBankingLink.click()
+    }
     inputValueSearchInputField(value) {
         this.searchInputField.waitForExist()
         this.searchInputField.setValue(value)

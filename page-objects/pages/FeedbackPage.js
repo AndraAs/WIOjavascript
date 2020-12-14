@@ -35,7 +35,7 @@ class FeedbackPage extends Base{
     }
     submitForm(){
         this.submitBtn.waitForExist()
-        this.submitBtn.click()
+        this.submitBtn.click()  
     }
 
 
