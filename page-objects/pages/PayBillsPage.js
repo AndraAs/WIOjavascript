@@ -1,3 +1,5 @@
+
+import { browser } from '../../lib/config'
 import Base from '../Base'
 class PayBillsPage extends Base {
 

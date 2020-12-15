@@ -2,13 +2,15 @@ import LoginPage from '../page-objects/pages/LoginPage'
 import App from '../page-objects/App'
 import {long} from '../lib/timeouts'
 import Navbar from '../page-objects/components/Navbar'
+import { browser } from '../lib/config'
+import * as dataHelper from '../lib/data-helpers'
 describe('E2E tests - Login / Logout Flow', () => {
     it('Should not login with invalid credential', () => {
        App.openHomePage()
         Navbar.clickSignIn()
         LoginPage.pauseShort()
         LoginPage.formIsVisible()
-        LoginPage.fillForm('invalid username','invalid pswd')
+        LoginPage.fillForm(dataHelper.getRandomName(),'invalid pswd')
         LoginPage.submitForm()
         
         const error = LoginPage.errorMsg
@@ -22,6 +24,7 @@ describe('E2E tests - Login / Logout Flow', () => {
         Navbar.clickSignIn()
         LoginPage.formIsVisible()
         LoginPage.fillForm('username','password')
+
         LoginPage.submitForm()
         Navbar.insideNavbarIsVisible()
     })
