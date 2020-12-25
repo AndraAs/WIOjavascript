@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name= "description" content="just my practice website">
+    <meta name="keywords" content="html,css,js">
+    <meta name="author" content="Your name">
+    <meta http-equiv="refresh" content="30">
     <title>Html for Testers</title>
 </head>
 <body>
@@ -20,18 +24,18 @@
     <br>
     <img src="https://mk0testguildcomxeb3s.kinstacdn.com/wp-content/uploads/2018/11/AutomationTestingProcess.png" alt="Testing process" width="500" height="500">
     
-    <table>
-        <tr>
-            <th>First Name</th>
+    <table id="users-table">
+        <tr class="table-row">
+            <th id="table_header-name">First Name</th>
             <th>Last Name</th>
             <th>Age</th>
         </tr>
-        <tr>
+        <tr class="table-row">
             <td>Andra</td>
             <td>Astalus</td>
             <td>31</td>
         </tr>
-        <tr>
+        <tr class="table-row">
             <td>Barbara</td>
             <td>Ferreira</td>
             <td>28</td>
@@ -46,11 +50,11 @@
         <li>Golang</li>
     </ul>
 
-    <ol>
+    <ol data-test-id="list-with-names">
         <li>Andra</li>
         <li>Barbara</li>
     </ol>
-    <form>
+    <form data-test-id="login-form">
         First Name:<br>
         <input type="text" placeholder="Enter your first name: ">
         <br>
@@ -58,9 +62,21 @@
         <input type="text" placeholder="Enter your last name: ">
         <br>
         Age:<br>
-        <input type="number" placeholder="Ener your age: ">
+        <input type="number" placeholder="Enter your age: ">
         <br>
         <input type="submit" value="Submit form">
     </form>
+
+    <button data-test-id="btn-menu" class="btn-large">Menu</button>
+    <button data-test-id="btn-map" class="btn-large">Map</button>
+    <button data-test-id="btn-users" class="btn-large">Users</button>
+
+    <h3>©</h3>
+    <h3>&#169</h3>
+    <h3>&copy</h3>
+
+    <h1>TIME</h1>
+    <button type="button" id="get-date-btn" onclick="document.getElementById('date').innerHTML=Date()">Click to get Date</button>
+    <p id="date"></p>
 </body>
 </html>
